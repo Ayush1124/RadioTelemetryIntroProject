@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeoTIFF Map</title>
+    
+    <!-- Include Leaflet CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <!-- Include Leaflet-Geotiff JS -->
+    <script src="https://unpkg.com/leaflet-geotiff"></script>
+    <script src="https://unpkg.com/leaflet-geotiff/dist/leaflet-geotiff.plotty.js"></script>
+
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cayman Map Viewer</h1>
+    <div id="map"></div>
+
+    <script>
+        // Initialize Leaflet map
+        var map = L.map('map').setView([19.3133, -81.2546], 13);  // Centered on Cayman Islands
+
+        // Add a base map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Load the GeoTIFF using Leaflet-Geotiff
+        var geotiffLayer = L.leafletGeotiff(
+            "/static/ltl_cayman_BROWSE.tif",
+            {
+                band: 0, 
+                displayMin: 0,
+                displayMax: 255,
+                name: 'GeoTIFF Layer'
+            }
+        ).addTo(map);
+    </script>
+</body>
+</html>

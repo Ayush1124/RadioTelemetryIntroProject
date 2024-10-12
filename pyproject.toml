@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "radiotelemetryintroproject"
+version = "0.1.0"
+description = "test"
+authors = ["Ayush <2ayush@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+flask = "^3.0.3"
+folium = "^0.17.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
