@@ -6,9 +6,10 @@ authors = ["Ayush <2ayush@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.9,<4.0"
 flask = "^3.0.3"
 folium = "^0.17.0"
+rasterio = "^1.4.1"
 
 
 [build-system]
